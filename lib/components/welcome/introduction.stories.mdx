@@ -1,0 +1,94 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title='Welcome/Introduction' />
+
+<h1 align='center'>Welcome to HRnet Modal React component 👋</h1>
+<p>
+  <a href='https://www.npmjs.com/package/@daphaz/hrnet-modal' target='_blank'>
+    <img
+      alt='Version'
+      src='https://badge.fury.io/js/@daphaz%2Fhrnet-modal.svg'
+    />
+  </a>
+</p>
+
+> This is the react component modal for HRnet
+
+> ### This is a reference of one of the components library in [this project]("https://github.com/Daphaz/DamienBonnet_14_ui_03072022")
+
+## Install
+
+> We recommand to use a nodejs version manager like _nvm_ and launch nvm use command to get the right Nodejs version.
+
+```sh
+# for install the package
+npm i @daphaz/hrnet-modal
+
+# for install locally
+npm i
+```
+
+### Start the project in local and get the documentation
+
+> You can launch storybook for doc and playground
+
+```sh
+npm run storybook
+```
+
+## Usage
+
+### Styling Guide
+
+> You need to implement some css variables for this library.
+
+```css
+// You need import your font here is Poppins for example
+:root {
+  --font-body: 'Poppins', sans-serif;
+  --clr-white: #fcfcfc;
+  --clr-black: #231f20;
+  --clr-primary: #00798c;
+  --clr-primary-light: #56ddf2;
+  --clr-secondary: #dd6e42;
+  --clr-secondary-light: #f4ae93;
+  --clr-red: #d1495b;
+  --clr-green: #698f3f;
+  --clr-yellow: #e0be36;
+  --clr-grey-700: #282d30;
+  --clr-grey-600: #c4c4c480;
+  --clr-grey-500: #74798c;
+  --clr-grey-400: #9b9eac;
+  --clr-grey-300: #dedede;
+  --clr-grey-200: #f1f3f5;
+  --clr-grey-100: #fbfbfb;
+}
+```
+
+## All script can you use
+
+```sh
+# for build the lib in production
+npm run build
+
+# for development
+npm run dev
+
+# fix eslint and format by prettier
+npm run lint:fix
+
+# check error eslint
+npm run lint:strict
+
+# format with prettier
+npm run format
+
+# check error prettier
+npm run format:check
+```
+
+### Run tests
+
+```sh
+npm run test
+```
