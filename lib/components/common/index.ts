@@ -1,10 +1,8 @@
 /* istanbul ignore file */
-export {
-  default as Modal,
+export type {
   ModalBodyProps,
   ModalFooterProps,
   ModalHeaderProps,
   ModalProps,
-  useModal,
-  useModalContext,
 } from './Modal';
+export { default as Modal, useModal, useModalContext } from './Modal';
