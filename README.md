@@ -1,87 +1,91 @@
-<h1 align="center">Welcome to HRnet Modal React component 👋</h1>
+<h1 align="left">hrnet-modal</h1>
 <p>
   <a href="https://www.npmjs.com/package/@daphaz/hrnet-modal" target="_blank">
   <img alt="Version" src="https://badge.fury.io/js/@daphaz%2Fhrnet-modal.svg" />
   </a>
 </p>
 
-> This is the react component modal for HRnet
+## Note
 
-> ### This is a reference of one of the components library in [this project]("https://github.com/Daphaz/DamienBonnet_14_ui_03072022")
+> This is a reference of one of the components library in [this project]("https://github.com/Daphaz/DamienBonnet_14_ui_03072022")
 
-## Install
+## Table of Contents
 
-> We recommand to use a nodejs version manager like _nvm_ and launch nvm use command to get the right Nodejs version.
+- [Installation](#installation)
+- [API documentation](#API-documentation)
 
-```sh
-# for install the package
-npm i @daphaz/hrnet-modal
+## Installation
 
-# for install locally
-npm i
-```
+For this project we use Nodejs `14.17.3`, we recommand to use a nodejs version manager like _nvm_ and launch `nvm use` command to get the right Nodejs version.
 
-### Start the project in local and get the documentation
-
-> You can launch storybook for doc and playground
+To install, you can use [npm]("https://www.npmjs.com/") or [yarn]("https://yarnpkg.com/"):
 
 ```sh
-npm run storybook
+$ npm install --save @daphaz/hrnet-modal
+$ yarn add @daphaz/hrnet-modal
 ```
 
-## Usage
+## API documentation
 
-### Styling Guide
+> Displays a dialog with a custom content that requires attention or provides additional information.
 
-> You need to implement some css variables for this library.
+### Default
 
-```css
-// You need import your font here is Poppins for example
-:root {
-  --font-body: 'Poppins', sans-serif;
-  --clr-white: #fcfcfc;
-  --clr-black: #231f20;
-  --clr-primary: #00798c;
-  --clr-primary-light: #56ddf2;
-  --clr-secondary: #dd6e42;
-  --clr-secondary-light: #f4ae93;
-  --clr-red: #d1495b;
-  --clr-green: #698f3f;
-  --clr-yellow: #e0be36;
-  --clr-grey-700: #282d30;
-  --clr-grey-600: #c4c4c480;
-  --clr-grey-500: #74798c;
-  --clr-grey-400: #9b9eac;
-  --clr-grey-300: #dedede;
-  --clr-grey-200: #f1f3f5;
-  --clr-grey-100: #fbfbfb;
-}
+Use `open` prop to control modal displayed
+
+| Name             |  Description   | Default |
+| ---------------- | :------------: | ------: |
+| **open**         |   `boolean`    |       - |
+| **preventClose** |   `boolean`    | `false` |
+| **closeButton**  |   `boolean`    | `false` |
+| **onOpen**       | `(() => void)` |       - |
+| **onClose**      | `(() => void)` |       - |
+| **className**    |    `string`    |    `""` |
+
+### Prevent Close
+
+With `preventClose` props you can't close the Modal by clicking on Backdrop
+
+### Modal Components
+
+Use can use three components already styled:
+
+- Modal.Header
+- Modal.Body
+- Modal.Footer
+
+```tsx
+<Modal>
+  <Modal.Header>my Header</Modal.Header>
+  <Modal.Body>my Body</Modal.Body>
+  <Modal.Footer>my Footer</Modal.Footer>
+</Modal>
 ```
 
-## All script can you use
+### Extras
 
-```sh
-# for build the lib in production
-npm run build
+Use can use a `useModal` hooks for provide already all state as you needed for modal controls
 
-# for development
-npm run dev
-
-# fix eslint and format by prettier
-npm run lint:fix
-
-# check error eslint
-npm run lint:strict
-
-# format with prettier
-npm run format
-
-# check error prettier
-npm run format:check
+```ts
+type useModal = (initialVisible: boolean) => {
+  visible: boolean;
+  setVisible: Dispatch<SetStateAction<boolean>>;
+  currentRef: MutableRefObject<boolean>;
+  controls: {
+    open: boolean;
+    onClose: () => void;
+  };
+};
 ```
 
-### Run tests
+And also if you need to close the Modal in other place use the context
 
-```sh
-npm run test
+```tsx
+import { useModalContext, Modal } from '@daphaz/hrnet-modal';
+
+const App = () => {
+  const { close } = useModalContext();
+
+  return <button onClick={close}>close modal</button>;
+};
 ```
